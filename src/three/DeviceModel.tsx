@@ -1,10 +1,11 @@
 import { useRef } from "react"
 import { useFrame } from "@react-three/fiber"
 import * as THREE from "three"
-import type { Category } from "../data/products"
+
+export type Has3DCategory = "plug" | "bulb" | "camera" | "speaker" | "doorbell" | "lock"
 
 interface DeviceModelProps {
-  category: Category
+  category: Has3DCategory
   color: string
   spinning: boolean
 }
@@ -189,7 +190,7 @@ function Lock({ color }: { color: string }) {
   )
 }
 
-const MODEL_BY_CATEGORY: Record<Category, React.FC<{ color: string }>> = {
+const MODEL_BY_CATEGORY: Record<Has3DCategory, React.FC<{ color: string }>> = {
   plug: Plug,
   bulb: Bulb,
   camera: Camera,

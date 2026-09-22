@@ -1,10 +1,10 @@
 import { lazy, Suspense } from "react"
-import type { Category } from "../data/products"
+import type { Has3DCategory } from "./DeviceModel"
 
 const ProductViewer3D = lazy(() => import("./ProductViewer3D"))
 
 interface LazyProductViewerProps {
-  category: Category
+  category: Has3DCategory
   color: string
   productName: string
 }
