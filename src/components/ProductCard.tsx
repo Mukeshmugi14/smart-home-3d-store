@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import { motion } from "framer-motion"
 import type { Product } from "../data/products"
 import PriceBlock from "./PriceBlock"
 import RatingStars from "./RatingStars"
@@ -7,7 +8,11 @@ import WishlistButton from "./WishlistButton"
 
 export default function ProductCard({ product }: { product: Product }) {
   return (
-    <div className="group relative rounded-card border border-line bg-panel p-4 transition-colors hover:border-clay/50">
+    <motion.div
+      whileHover={{ y: -4 }}
+      transition={{ duration: 0.2, ease: "easeOut" }}
+      className="group relative rounded-card border border-line bg-panel p-4 transition-colors hover:border-clay/50 hover:shadow-lg hover:shadow-ink/5"
+    >
       <WishlistButton slug={product.slug} className="absolute right-3 top-3 z-10" />
       <Link to={`/product/${product.slug}`} className="block">
         <div className="flex flex-wrap gap-1.5 pr-8">
@@ -31,6 +36,6 @@ export default function ProductCard({ product }: { product: Product }) {
           <PriceBlock product={product} />
         </div>
       </Link>
-    </div>
+    </motion.div>
   )
 }

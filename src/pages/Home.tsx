@@ -1,9 +1,12 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import { motion } from "framer-motion"
 import LazyProductViewer from "../three/LazyProductViewer"
 import type { Has3DCategory } from "../three/DeviceModel"
 import ProductCard from "../components/ProductCard"
 import Badge from "../components/Badge"
+import Reveal from "../components/Reveal"
+import BrandFilm from "../components/BrandFilm"
 import { products, hostelKitPrice, hostelKitMrp, formatINR } from "../data/products"
 
 const featured = products.find((p) => p.slug === "hearth-speaker")!
@@ -22,7 +25,12 @@ export default function Home() {
       </div>
 
       <section className="mx-auto grid max-w-6xl gap-10 px-5 pb-16 pt-10 sm:pt-16 lg:grid-cols-[1.1fr_1fr] lg:gap-6">
-        <div className="flex flex-col justify-center">
+        <motion.div
+          initial={{ opacity: 0, y: 22 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="flex flex-col justify-center"
+        >
           <Badge tone="clay">Built for hostels &amp; first apartments</Badge>
           <h1 className="font-display mt-5 text-4xl leading-[1.05] text-ink sm:text-5xl lg:text-[3.3rem]">
             Smart home, sized for real life —
@@ -48,9 +56,14 @@ export default function Home() {
               See the Hostel &amp; PG Kit
             </Link>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="flex flex-col">
+        <motion.div
+          initial={{ opacity: 0, y: 22 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+          className="flex flex-col"
+        >
           <div className="h-80 rounded-card border border-line bg-panel sm:h-96">
             <LazyProductViewer
               category={featured.category as Has3DCategory}
@@ -81,11 +94,13 @@ export default function Home() {
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
+      <BrandFilm />
+
       <section className="border-y border-line bg-panel">
-        <div className="mx-auto max-w-6xl px-5 py-10">
+        <Reveal className="mx-auto max-w-6xl px-5 py-10">
           <div className="grid gap-8 sm:grid-cols-3">
             <div>
               <p className="font-display text-2xl text-ink">3 EMIs</p>
@@ -109,10 +124,10 @@ export default function Home() {
               </p>
             </div>
           </div>
-        </div>
+        </Reveal>
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 py-16">
+      <Reveal className="mx-auto max-w-6xl px-5 py-16">
         <div className="grid items-center gap-8 rounded-card border border-line bg-panel p-6 sm:p-8 lg:grid-cols-[1fr_1.1fr]">
           <div>
             <Badge>New</Badge>
@@ -140,9 +155,9 @@ export default function Home() {
             />
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="mx-auto max-w-6xl px-5 pb-16">
+      <Reveal className="mx-auto max-w-6xl px-5 pb-16">
         <div className="mb-8 flex items-end justify-between">
           <div>
             <h2 className="font-display text-2xl text-ink sm:text-3xl">
@@ -161,9 +176,9 @@ export default function Home() {
             <ProductCard key={p.slug} product={p} />
           ))}
         </div>
-      </section>
+      </Reveal>
 
-      <section className="mx-auto max-w-6xl px-5 pb-16">
+      <Reveal className="mx-auto max-w-6xl px-5 pb-16">
         <div className="mb-8 flex items-end justify-between">
           <div>
             <h2 className="font-display text-2xl text-ink sm:text-3xl">
@@ -182,9 +197,9 @@ export default function Home() {
             <ProductCard key={p.slug} product={p} />
           ))}
         </div>
-      </section>
+      </Reveal>
 
-      <section className="mx-auto max-w-6xl px-5 pb-16">
+      <Reveal className="mx-auto max-w-6xl px-5 pb-16">
         <div className="mb-8 flex items-end justify-between">
           <div>
             <h2 className="font-display text-2xl text-ink sm:text-3xl">
@@ -203,9 +218,9 @@ export default function Home() {
             <ProductCard key={p.slug} product={p} />
           ))}
         </div>
-      </section>
+      </Reveal>
 
-      <section className="mx-auto max-w-6xl px-5 pb-20">
+      <Reveal className="mx-auto max-w-6xl px-5 pb-20">
         <div className="rounded-card bg-moss-tint px-6 py-10 sm:px-10">
           <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
             <div>
@@ -228,7 +243,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </section>
+      </Reveal>
     </div>
   )
 }
