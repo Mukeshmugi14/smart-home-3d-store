@@ -2,29 +2,29 @@ export default function About() {
   return (
     <div className="mx-auto max-w-2xl px-5 py-16">
       <h1 className="font-display text-3xl text-ink sm:text-4xl">
-        Why we built Nestly
+        Why we built Basera
       </h1>
       <div className="mt-6 space-y-4 text-ink-soft">
         <p>
-          Most smart-home sites are built for someone furnishing a whole
-          house. Nestly is built for the smaller, more common case: one room,
-          one outlet, one budget — a dorm, a first apartment, a shared house.
+          "Basera" means nest, or home. Most smart-home sites are built for
+          someone furnishing a whole house. Basera is built for the smaller,
+          more common case in India: one hostel room, one PG, one budget.
         </p>
         <p>
-          We picked six devices instead of sixty. Each one has a real spec
-          sheet on its product page and a 3D model you can rotate and
-          recolor before you buy, because a studio photo from one angle
-          doesn't tell you what something looks like on your desk.
+          We picked fourteen products instead of a hundred — six flagship
+          smart-home devices with a real 3D model you can rotate, recolor,
+          and drop into a stylized room before you buy, plus real product
+          photography throughout, honest specs on every page, and the home
+          essentials — a study lamp, an extension board, a bedsheet set —
+          that a hostel room actually needs alongside the smart stuff.
         </p>
         <p>
-          Every price on this site splits into four installments at
-          checkout, shown up front — not buried until the last step. No
-          device here requires a subscription to use its core function.
-        </p>
-        <p className="text-sm">
-          Nestly is a concept storefront built to demonstrate a 3D-first
-          product browsing experience. It is not a real store, and checkout
-          is not connected to payment processing.
+          Every price splits into interest-free EMIs shown up front, and you
+          can pay however you trust: UPI, card, net banking, or cash on
+          delivery. Checkout, order tracking, and payment here are all
+          simulated — this is a concept storefront built to demonstrate a
+          3D-first, Amazon-style shopping experience, not a live payment
+          system.
         </p>
       </div>
     </div>

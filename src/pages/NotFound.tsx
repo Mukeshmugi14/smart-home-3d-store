@@ -14,7 +14,7 @@ export default function NotFound() {
         to="/"
         className="mt-6 rounded-pill bg-ink px-6 py-3 text-sm font-semibold text-paper hover:opacity-90"
       >
-        Back to Nestly
+        Back to Basera
       </Link>
     </div>
   )

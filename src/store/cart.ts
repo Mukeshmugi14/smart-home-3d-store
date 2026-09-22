@@ -52,7 +52,7 @@ export const useCart = create<CartState>()(
         })),
       clear: () => set({ lines: [] }),
     }),
-    { name: "nestly-cart" },
+    { name: "basera-cart" },
   ),
 )
 

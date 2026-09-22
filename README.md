@@ -1,24 +1,30 @@
-# Nestly
+# Basera
 
-A concept smart-home ecommerce storefront built for students and young
-professionals furnishing a first apartment or dorm room. Six devices, honest
-specs, and a rotatable 3D preview on every product page — no studio photo
-substitute.
+A concept ecommerce storefront for smart-home and hostel/PG essentials,
+built for Indian students and young professionals furnishing a first room.
+Fourteen products, real product photography, honest specs, and a rotatable
+(and room-placeable) 3D preview on the six flagship smart-home devices.
 
 ## Why it's different
 
 Big smart-home brands (Apple, Google Nest, Philips Hue, Wyze) sell with
 static studio photography and color swatches. None of them ship a true
-360° product viewer. Nestly's product pages render each device as a
-lightweight, procedurally-built Three.js model you can drag to rotate,
-scroll to zoom, and recolor live — with full keyboard support.
+360° product viewer, let alone one that drops the device into a room.
+Basera's flagship product pages render each device as a lightweight,
+procedurally-built Three.js model you can drag to rotate, scroll to zoom,
+recolor live, and place inside a stylized room — with full keyboard support.
+
+The rest of the catalog (new smart-home add-ons and general hostel
+essentials) uses real product photography sourced from Unsplash, matching
+an Amazon-style browsing experience: ratings, reviews, wishlist, sort/filter,
+"customers also bought," and a full checkout → payment → order-tracking flow.
 
 ## Stack
 
 - React 19 + TypeScript + Vite
 - Tailwind CSS v4 (custom design tokens, no default palette)
-- React Three Fiber + drei for the 3D product viewer
-- Zustand (with localStorage persistence) for cart state
+- React Three Fiber + drei for the 3D product viewer and room scene
+- Zustand (with localStorage persistence) for cart, wishlist, and orders
 - React Router for navigation
 
 ## Local development
@@ -62,14 +68,18 @@ auto-deploy on push — no CLI required.
 
 ```
 src/
-  components/   shared UI (header, footer, product card, badges)
-  three/        the 3D viewer and procedural device models
-  pages/        route-level views (Home, Shop, Product, Bundles, Cart, About)
-  data/         product catalog (typed, static)
-  store/        cart state (Zustand)
+  components/   shared UI (header w/ search, footer, product card, ratings, price, wishlist)
+  three/        the 3D viewer, room scene, and procedural device models
+  pages/        Home, Shop, Product, Bundles, Cart, Checkout, Order
+                 confirmation/tracking, Orders, Wishlist, About
+  data/         product catalog (typed, static, INR pricing + reviews)
+  store/        cart, wishlist, and orders state (Zustand)
 ```
 
 ## Notes
 
-This is a concept storefront demonstrating a 3D-first product browsing
-experience. Checkout is not connected to real payment processing.
+This is a concept storefront demonstrating a 3D-first, Amazon-style
+shopping experience for the Indian market. Checkout, payment, and order
+tracking are fully simulated client-side — no real payment processing,
+and no real data leaves the browser (everything persists to
+`localStorage`). Product photography is sourced from Unsplash.

@@ -1,25 +1,26 @@
-import { Link } from "react-router-dom"
-import ProductThumb from "../components/ProductThumb"
+import { Link, useNavigate } from "react-router-dom"
 import { useCart, cartTotal } from "../store/cart"
+import { formatINR } from "../data/products"
 
 export default function Cart() {
   const lines = useCart((s) => s.lines)
   const setQuantity = useCart((s) => s.setQuantity)
   const removeItem = useCart((s) => s.removeItem)
   const total = cartTotal(lines)
+  const navigate = useNavigate()
 
   if (lines.length === 0) {
     return (
       <div className="mx-auto max-w-2xl px-5 py-20 text-center">
         <h1 className="font-display text-2xl text-ink">Your cart is empty</h1>
         <p className="mt-2 text-ink-soft">
-          Nothing added yet — browse the shop to find your first device.
+          Nothing added yet — browse the shop to find your first product.
         </p>
         <Link
           to="/shop"
           className="mt-6 inline-block rounded-pill bg-ink px-6 py-3 text-sm font-semibold text-paper hover:opacity-90"
         >
-          Shop devices
+          Shop products
         </Link>
       </div>
     )
@@ -32,14 +33,11 @@ export default function Cart() {
       <ul className="mt-8 divide-y divide-line">
         {lines.map((line) => (
           <li key={`${line.product.slug}-${line.colorName}`} className="flex items-center gap-4 py-5">
-            <div className="h-16 w-16 shrink-0">
-              <ProductThumb
-                category={line.product.category}
-                color={
-                  line.product.colors.find((c) => c.name === line.colorName)?.hex ??
-                  line.product.colors[0].hex
-                }
-                className="h-full w-full"
+            <div className="h-16 w-16 shrink-0 overflow-hidden rounded-md bg-paper-dim">
+              <img
+                src={line.product.image}
+                alt={line.product.name}
+                className="h-full w-full object-cover"
               />
             </div>
             <div className="flex-1">
@@ -65,8 +63,8 @@ export default function Cart() {
                 ))}
               </select>
             </div>
-            <p className="w-16 text-right font-medium text-ink">
-              ${line.product.price * line.quantity}
+            <p className="w-20 text-right font-medium text-ink">
+              &#8377;{formatINR(line.product.price * line.quantity)}
             </p>
             <button
               type="button"
@@ -82,20 +80,21 @@ export default function Cart() {
 
       <div className="mt-8 flex items-center justify-between border-t border-line pt-6">
         <p className="text-ink-soft">Total</p>
-        <p className="font-display text-2xl text-ink">${total}</p>
+        <p className="font-display text-2xl text-ink">&#8377;{formatINR(total)}</p>
       </div>
       <p className="mt-1 text-right text-sm text-ink-soft">
-        or 4 interest-free payments of ${(total / 4).toFixed(2)}
+        or 3 interest-free EMIs of &#8377;{formatINR(Math.round(total / 3))}
       </p>
 
       <button
         type="button"
+        onClick={() => navigate("/checkout")}
         className="mt-6 w-full rounded-pill bg-ink px-6 py-3.5 text-sm font-semibold text-paper transition-opacity hover:opacity-90"
       >
-        Checkout
+        Proceed to checkout
       </button>
       <p className="mt-3 text-center text-xs text-ink-soft">
-        This is a concept storefront — checkout is not connected to real payment processing.
+        This is a concept storefront — checkout simulates the flow and does not connect to real payment processing.
       </p>
     </div>
   )
