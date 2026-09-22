@@ -683,7 +683,7 @@ export const products: Product[] = [
     name: "Haven Modular Sofa",
     type: "furniture",
     category: "sofa",
-    has3D: false,
+    has3D: true,
     tagline: "A 3-seater that splits into pieces for narrow stairwells.",
     description:
       "Haven ships as three connected modules, so it fits through a standard hostel or apartment stairwell that a one-piece sofa never would, then bolts back together in your room. Removable, washable covers over a hardwood frame.",
@@ -727,7 +727,7 @@ export const products: Product[] = [
     name: "Orbit Coffee Table",
     type: "furniture",
     category: "table",
-    has3D: false,
+    has3D: true,
     tagline: "A round marble-top table that doesn't corner-clip a small room.",
     description:
       "Round tables leave more walking space in a small living room than a rectangular one of the same size. Orbit pairs a marble-finish top with a solid wood base that needs no tools beyond the included hex key.",
@@ -770,7 +770,7 @@ export const products: Product[] = [
     name: "Frame TV Console",
     type: "furniture",
     category: "tvunit",
-    has3D: false,
+    has3D: true,
     tagline: "Closed storage for the cables and consoles a TV wall never shows.",
     description:
       "Frame holds a TV up to 55 inches and hides the router, set-top box, and cable mess behind two soft-close doors, with an open shelf for a plant or speaker on top.",
@@ -813,7 +813,7 @@ export const products: Product[] = [
     name: "Arc Floor Lamp",
     type: "furniture",
     category: "floorlamp",
-    has3D: false,
+    has3D: true,
     tagline: "A reading lamp that clamps light exactly over the sofa arm.",
     description:
       "An adjustable-head floor lamp with a weighted base, angled so the light lands on a book or laptop on the sofa instead of the ceiling.",
@@ -856,7 +856,7 @@ export const products: Product[] = [
     name: "Meadow Area Rug",
     type: "furniture",
     category: "rug",
-    has3D: false,
+    has3D: true,
     tagline: "A 5x7ft rug that anchors a seating area without hiding the floor.",
     description:
       "Low-pile and machine washable, sized to sit under a coffee table with the sofa legs just off the edge — the sizing most living rooms actually need.",
@@ -900,7 +900,7 @@ export const products: Product[] = [
     name: "Knit Cushion Set",
     type: "furniture",
     category: "cushion",
-    has3D: false,
+    has3D: true,
     tagline: "Two chunky-knit cushion covers, insert not included.",
     description:
       "A set of two chunky hand-knit-style cushion covers in a 45x45cm fit for standard inserts, machine washable.",

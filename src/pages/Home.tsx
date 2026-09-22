@@ -30,9 +30,9 @@ export default function Home() {
           </h1>
           <p className="mt-5 max-w-md text-ink-soft">
             Twenty products across smart home, hostel essentials, and
-            furniture — honest specs, real photography, and a room preview
-            you can drag any piece into before you buy. No hub required, no
-            subscription to use the basics.
+            furniture — honest specs, real photography, and real rotatable
+            3D models you can drop into a room before you buy. No hub
+            required, no subscription to use the basics.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <Link
@@ -117,12 +117,12 @@ export default function Home() {
           <div>
             <Badge>New</Badge>
             <h2 className="font-display mt-3 text-2xl text-ink sm:text-3xl">
-              See it in a real room, not a render.
+              Every piece, modeled in 3D — sofas included.
             </h2>
             <p className="mt-3 max-w-md text-ink-soft">
-              Drag any product onto a real room photo, resize it to scale, and
-              download the result — no toy 3D models, just real photography
-              composited the way you'd actually judge fit and look.
+              Furniture now gets the same treatment as our smart-home
+              originals: a real rotatable 3D model dropped into a room, not a
+              flat product photo pasted on top of a picture.
             </p>
             <Link
               to={`/room-preview?product=${roomPreviewFeatured.slug}`}
@@ -131,11 +131,12 @@ export default function Home() {
               Try the room preview
             </Link>
           </div>
-          <div className="overflow-hidden rounded-card border border-line">
-            <img
-              src="/rooms/minimal-living-room.png"
-              alt="A real living room photo used as a room preview background"
-              className="h-64 w-full object-cover sm:h-80"
+          <div className="h-64 overflow-hidden rounded-card border border-line sm:h-80">
+            <LazyProductViewer
+              category={roomPreviewFeatured.category as Has3DCategory}
+              color={roomPreviewFeatured.colors[0].hex}
+              productName={roomPreviewFeatured.name}
+              defaultMode="room"
             />
           </div>
         </div>

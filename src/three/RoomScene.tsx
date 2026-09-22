@@ -11,7 +11,20 @@ const WALL = "#efe6d6"
 const FLOOR = "#c9a876"
 const WOOD = "#8a6b4a"
 
-// Where the device sits within the room, and how it's scaled, per category.
+const FURNITURE_CATEGORIES = new Set<Has3DCategory>([
+  "sofa",
+  "table",
+  "tvunit",
+  "floorlamp",
+  "rug",
+  "cushion",
+])
+
+export function isFurnitureCategory(category: Has3DCategory): boolean {
+  return FURNITURE_CATEGORIES.has(category)
+}
+
+// Where the model sits within the room, and how it's scaled, per category.
 const PLACEMENT: Record<Has3DCategory, { position: [number, number, number]; scale: number }> = {
   plug: { position: [-1.1, -0.72, -1.55], scale: 0.55 },
   bulb: { position: [0.9, 0.15, -0.9], scale: 0.6 },
@@ -19,6 +32,12 @@ const PLACEMENT: Record<Has3DCategory, { position: [number, number, number]; sca
   speaker: { position: [0.9, 0.02, -0.9], scale: 0.55 },
   doorbell: { position: [1.7, 0.3, -1.85], scale: 0.6 },
   lock: { position: [1.7, -0.1, -1.85], scale: 0.6 },
+  sofa: { position: [0.5, -0.75, 0.2], scale: 0.85 },
+  table: { position: [0.5, -0.99, 0.9], scale: 0.9 },
+  tvunit: { position: [-0.5, -1.0, -1.82], scale: 0.9 },
+  floorlamp: { position: [1.9, -0.55, -0.3], scale: 1 },
+  rug: { position: [-0.7, -1.28, -1.4], scale: 1.6 },
+  cushion: { position: [0.3, -1.15, 0.3], scale: 1.3 },
 }
 
 function Desk() {
@@ -45,6 +64,7 @@ function Desk() {
 
 export default function RoomScene({ category, color, spinning }: RoomSceneProps) {
   const placement = PLACEMENT[category]
+  const isFurniture = isFurnitureCategory(category)
 
   return (
     <group>
@@ -69,7 +89,7 @@ export default function RoomScene({ category, color, spinning }: RoomSceneProps)
         <meshStandardMaterial color="#fff8e8" emissive="#fff3d6" emissiveIntensity={0.5} />
       </mesh>
 
-      <Desk />
+      {!isFurniture && <Desk />}
 
       <group position={placement.position} scale={placement.scale}>
         <DeviceModel category={category} color={color} spinning={spinning} />

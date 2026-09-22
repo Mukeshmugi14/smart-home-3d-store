@@ -1,8 +1,21 @@
 import { useRef } from "react"
 import { useFrame } from "@react-three/fiber"
+import { RoundedBox } from "@react-three/drei"
 import * as THREE from "three"
 
-export type Has3DCategory = "plug" | "bulb" | "camera" | "speaker" | "doorbell" | "lock"
+export type Has3DCategory =
+  | "plug"
+  | "bulb"
+  | "camera"
+  | "speaker"
+  | "doorbell"
+  | "lock"
+  | "sofa"
+  | "table"
+  | "tvunit"
+  | "floorlamp"
+  | "rug"
+  | "cushion"
 
 interface DeviceModelProps {
   category: Has3DCategory
@@ -190,6 +203,126 @@ function Lock({ color }: { color: string }) {
   )
 }
 
+function Sofa({ color }: { color: string }) {
+  return (
+    <group>
+      <RoundedBox args={[2.2, 0.5, 0.9]} radius={0.08} smoothness={4} castShadow receiveShadow position={[0, -0.3, 0]}>
+        <meshStandardMaterial color={color} roughness={0.85} />
+      </RoundedBox>
+      <RoundedBox args={[2.2, 0.62, 0.26]} radius={0.08} smoothness={4} castShadow position={[0, 0.16, -0.32]}>
+        <meshStandardMaterial color={color} roughness={0.85} />
+      </RoundedBox>
+      {[-1.08, 1.08].map((x) => (
+        <RoundedBox key={x} args={[0.26, 0.56, 0.92]} radius={0.07} smoothness={4} castShadow position={[x, -0.04, 0]}>
+          <meshStandardMaterial color={color} roughness={0.85} />
+        </RoundedBox>
+      ))}
+      {[
+        [-0.9, -0.4],
+        [0.9, -0.4],
+        [-0.9, 0.35],
+        [0.9, 0.35],
+      ].map(([x, z]) => (
+        <mesh key={`${x}-${z}`} position={[x, -0.66, z]}>
+          <cylinderGeometry args={[0.04, 0.04, 0.14, 12]} />
+          <meshStandardMaterial color={METAL} roughness={0.4} metalness={0.6} />
+        </mesh>
+      ))}
+    </group>
+  )
+}
+
+function Table({ color }: { color: string }) {
+  return (
+    <group>
+      <mesh castShadow receiveShadow position={[0, 0.32, 0]}>
+        <cylinderGeometry args={[0.78, 0.78, 0.06, 40]} />
+        <meshStandardMaterial color={color} roughness={0.3} metalness={0.1} />
+      </mesh>
+      <mesh position={[0, 0, 0]}>
+        <cylinderGeometry args={[0.1, 0.13, 0.6, 20]} />
+        <meshStandardMaterial color={METAL} roughness={0.35} metalness={0.6} />
+      </mesh>
+      <mesh position={[0, -0.32, 0]}>
+        <cylinderGeometry args={[0.42, 0.46, 0.06, 32]} />
+        <meshStandardMaterial color={METAL} roughness={0.4} metalness={0.5} />
+      </mesh>
+    </group>
+  )
+}
+
+function TvUnit({ color }: { color: string }) {
+  return (
+    <group>
+      <RoundedBox args={[2.6, 0.5, 0.6]} radius={0.05} smoothness={4} castShadow receiveShadow position={[0, 0, 0]}>
+        <meshStandardMaterial color={color} roughness={0.4} />
+      </RoundedBox>
+      <mesh position={[0, 0.02, 0.31]}>
+        <boxGeometry args={[2.5, 0.35, 0.01]} />
+        <meshStandardMaterial color={INK} roughness={0.5} transparent opacity={0.15} />
+      </mesh>
+      {[-0.65, 0.65].map((x) => (
+        <mesh key={x} position={[x, -0.22, 0]}>
+          <boxGeometry args={[0.02, 0.08, 0.58]} />
+          <meshStandardMaterial color={INK} roughness={0.6} />
+        </mesh>
+      ))}
+      {[-0.85, -0.28, 0.28, 0.85].map((x) => (
+        <mesh key={x} position={[x, -0.27, 0]}>
+          <cylinderGeometry args={[0.03, 0.03, 0.1, 10]} />
+          <meshStandardMaterial color={METAL} roughness={0.4} metalness={0.6} />
+        </mesh>
+      ))}
+    </group>
+  )
+}
+
+function FloorLamp({ color }: { color: string }) {
+  return (
+    <group>
+      <mesh position={[0, -0.72, 0]}>
+        <cylinderGeometry args={[0.36, 0.4, 0.06, 32]} />
+        <meshStandardMaterial color={METAL} roughness={0.35} metalness={0.6} />
+      </mesh>
+      <mesh position={[0, -0.1, 0]}>
+        <cylinderGeometry args={[0.03, 0.03, 1.3, 12]} />
+        <meshStandardMaterial color={METAL} roughness={0.3} metalness={0.7} />
+      </mesh>
+      <mesh castShadow position={[0, 0.65, 0]}>
+        <cylinderGeometry args={[0.32, 0.24, 0.42, 32, 1, true]} />
+        <meshStandardMaterial
+          color={color}
+          roughness={0.6}
+          emissive={color}
+          emissiveIntensity={0.25}
+          side={THREE.DoubleSide}
+        />
+      </mesh>
+    </group>
+  )
+}
+
+function Rug({ color }: { color: string }) {
+  return (
+    <RoundedBox args={[2.6, 0.04, 1.8]} radius={0.06} smoothness={2} receiveShadow position={[0, -0.98, 0]}>
+      <meshStandardMaterial color={color} roughness={0.95} />
+    </RoundedBox>
+  )
+}
+
+function Cushion({ color }: { color: string }) {
+  return (
+    <group>
+      <RoundedBox args={[0.42, 0.42, 0.16]} radius={0.15} smoothness={4} castShadow position={[-0.24, 0, 0]} rotation-y={0.3}>
+        <meshStandardMaterial color={color} roughness={0.9} />
+      </RoundedBox>
+      <RoundedBox args={[0.42, 0.42, 0.16]} radius={0.15} smoothness={4} castShadow position={[0.24, 0, 0]} rotation-y={-0.25}>
+        <meshStandardMaterial color={color} roughness={0.9} />
+      </RoundedBox>
+    </group>
+  )
+}
+
 const MODEL_BY_CATEGORY: Record<Has3DCategory, React.FC<{ color: string }>> = {
   plug: Plug,
   bulb: Bulb,
@@ -197,6 +330,12 @@ const MODEL_BY_CATEGORY: Record<Has3DCategory, React.FC<{ color: string }>> = {
   speaker: Speaker,
   doorbell: Doorbell,
   lock: Lock,
+  sofa: Sofa,
+  table: Table,
+  tvunit: TvUnit,
+  floorlamp: FloorLamp,
+  rug: Rug,
+  cushion: Cushion,
 }
 
 export default function DeviceModel({ category, color, spinning }: DeviceModelProps) {

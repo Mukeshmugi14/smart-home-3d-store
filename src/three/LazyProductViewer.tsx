@@ -7,6 +7,7 @@ interface LazyProductViewerProps {
   category: Has3DCategory
   color: string
   productName: string
+  defaultMode?: "object" | "room"
 }
 
 function ViewerSkeleton() {

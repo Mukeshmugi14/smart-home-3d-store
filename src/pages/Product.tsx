@@ -162,16 +162,18 @@ export default function Product() {
             </button>
           </div>
 
-          <Link
-            to={`/room-preview?product=${product.slug}`}
-            className="mt-3 flex items-center justify-center gap-2 rounded-pill border border-line px-6 py-3 text-sm font-medium text-ink-soft transition-colors hover:border-clay/60 hover:text-ink"
-          >
-            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-              <path d="M2.5 7l7.5-4 7.5 4-7.5 4-7.5-4z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
-              <path d="M2.5 7v6l7.5 4 7.5-4V7" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
-            </svg>
-            See it in a real room
-          </Link>
+          {product.has3D && (
+            <Link
+              to={`/room-preview?product=${product.slug}`}
+              className="mt-3 flex items-center justify-center gap-2 rounded-pill border border-line px-6 py-3 text-sm font-medium text-ink-soft transition-colors hover:border-clay/60 hover:text-ink"
+            >
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M2.5 7l7.5-4 7.5 4-7.5 4-7.5-4z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
+                <path d="M2.5 7v6l7.5 4 7.5-4V7" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
+              </svg>
+              See it in a 3D room
+            </Link>
+          )}
 
           <p className="mt-6 max-w-md text-sm text-ink-soft">{product.description}</p>
 
