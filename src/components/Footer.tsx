@@ -35,6 +35,16 @@ export default function Footer() {
               </Link>
             </li>
             <li>
+              <Link to="/shop?type=furniture" className="hover:text-clay">
+                Furniture
+              </Link>
+            </li>
+            <li>
+              <Link to="/room-preview" className="hover:text-clay">
+                Room preview
+              </Link>
+            </li>
+            <li>
               <Link to="/bundles" className="hover:text-clay">
                 Hostel &amp; PG Starter Kit
               </Link>

@@ -7,8 +7,10 @@ import Badge from "../components/Badge"
 import { products, hostelKitPrice, hostelKitMrp, formatINR } from "../data/products"
 
 const featured = products.find((p) => p.slug === "hearth-speaker")!
+const roomPreviewFeatured = products.find((p) => p.slug === "haven-modular-sofa")!
 const smartProducts = products.filter((p) => p.type === "smart").slice(0, 6)
 const homeProducts = products.filter((p) => p.type === "home")
+const furnitureProducts = products.filter((p) => p.type === "furniture")
 
 export default function Home() {
   const [color, setColor] = useState(featured.colors[0])
@@ -27,8 +29,9 @@ export default function Home() {
             <span className="italic text-clay"> not a showroom.</span>
           </h1>
           <p className="mt-5 max-w-md text-ink-soft">
-            Fourteen products, honest specs, and a real 3D preview you can spin
-            around — or drop into a room — before you buy. No hub required, no
+            Twenty products across smart home, hostel essentials, and
+            furniture — honest specs, real photography, and a room preview
+            you can drag any piece into before you buy. No hub required, no
             subscription to use the basics.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
@@ -110,6 +113,35 @@ export default function Home() {
       </section>
 
       <section className="mx-auto max-w-6xl px-5 py-16">
+        <div className="grid items-center gap-8 rounded-card border border-line bg-panel p-6 sm:p-8 lg:grid-cols-[1fr_1.1fr]">
+          <div>
+            <Badge>New</Badge>
+            <h2 className="font-display mt-3 text-2xl text-ink sm:text-3xl">
+              See it in a real room, not a render.
+            </h2>
+            <p className="mt-3 max-w-md text-ink-soft">
+              Drag any product onto a real room photo, resize it to scale, and
+              download the result — no toy 3D models, just real photography
+              composited the way you'd actually judge fit and look.
+            </p>
+            <Link
+              to={`/room-preview?product=${roomPreviewFeatured.slug}`}
+              className="mt-5 inline-block rounded-pill bg-ink px-6 py-3 text-sm font-semibold text-paper transition-opacity hover:opacity-90"
+            >
+              Try the room preview
+            </Link>
+          </div>
+          <div className="overflow-hidden rounded-card border border-line">
+            <img
+              src="/rooms/minimal-living-room.png"
+              alt="A real living room photo used as a room preview background"
+              className="h-64 w-full object-cover sm:h-80"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-5 pb-16">
         <div className="mb-8 flex items-end justify-between">
           <div>
             <h2 className="font-display text-2xl text-ink sm:text-3xl">
@@ -146,6 +178,27 @@ export default function Home() {
         </div>
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {homeProducts.map((p) => (
+            <ProductCard key={p.slug} product={p} />
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-5 pb-16">
+        <div className="mb-8 flex items-end justify-between">
+          <div>
+            <h2 className="font-display text-2xl text-ink sm:text-3xl">
+              Furniture
+            </h2>
+            <p className="mt-1 text-sm text-ink-soft">
+              For the first apartment, not the hostel room — preview any piece in a real room before you buy.
+            </p>
+          </div>
+          <Link to="/shop?type=furniture" className="text-sm font-medium text-clay hover:underline">
+            View all
+          </Link>
+        </div>
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {furnitureProducts.map((p) => (
             <ProductCard key={p.slug} product={p} />
           ))}
         </div>

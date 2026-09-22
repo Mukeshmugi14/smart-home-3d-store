@@ -12,6 +12,7 @@ import OrderConfirmation from "./pages/OrderConfirmation"
 import Orders from "./pages/Orders"
 import TrackOrder from "./pages/TrackOrder"
 import Wishlist from "./pages/Wishlist"
+import RoomPreview from "./pages/RoomPreview"
 import About from "./pages/About"
 import NotFound from "./pages/NotFound"
 
@@ -40,6 +41,7 @@ export default function App() {
           <Route path="/orders" element={<Orders />} />
           <Route path="/track/:id" element={<TrackOrder />} />
           <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="/room-preview" element={<RoomPreview />} />
           <Route path="/about" element={<About />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

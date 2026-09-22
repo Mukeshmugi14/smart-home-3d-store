@@ -1,4 +1,4 @@
-export type ProductType = "smart" | "home"
+export type ProductType = "smart" | "home" | "furniture"
 
 export type Category =
   | "plug"
@@ -15,6 +15,12 @@ export type Category =
   | "organizer"
   | "extension"
   | "bedding"
+  | "sofa"
+  | "table"
+  | "tvunit"
+  | "floorlamp"
+  | "rug"
+  | "cushion"
 
 export interface ColorOption {
   name: string
@@ -669,6 +675,266 @@ export const products: Product[] = [
         rating: 4,
         text: "Good value, fits the standard hostel cot size exactly as described.",
         date: "3 months ago",
+      },
+    ],
+  },
+  {
+    slug: "haven-modular-sofa",
+    name: "Haven Modular Sofa",
+    type: "furniture",
+    category: "sofa",
+    has3D: false,
+    tagline: "A 3-seater that splits into pieces for narrow stairwells.",
+    description:
+      "Haven ships as three connected modules, so it fits through a standard hostel or apartment stairwell that a one-piece sofa never would, then bolts back together in your room. Removable, washable covers over a hardwood frame.",
+    price: 22999,
+    mrp: 31999,
+    installments: 3,
+    rating: 4.3,
+    reviewCount: 187,
+    colors: [
+      { name: "Chalk", hex: "#e9e2d3" },
+      { name: "Charcoal", hex: "#4a4640" },
+    ],
+    image: img("1651764126724-5af9b63ec825"),
+    specs: [
+      { label: "Seating", value: "3-seater, modular" },
+      { label: "Frame", value: "Solid hardwood" },
+      { label: "Cover", value: "Removable, machine washable" },
+      { label: "Delivery", value: "Assembled on-site" },
+    ],
+    compatibility: [],
+    inHostelKit: false,
+    reviews: [
+      {
+        name: "Ritesh K.",
+        location: "Bengaluru",
+        rating: 5,
+        text: "Moved this into a 3rd-floor flat with a tiny staircase — the modular pieces were the only reason it fit at all.",
+        date: "1 month ago",
+      },
+      {
+        name: "Sneha P.",
+        location: "Pune",
+        rating: 4,
+        text: "Comfortable and the cover has already survived one coffee spill and a wash. Assembly team was on time.",
+        date: "2 months ago",
+      },
+    ],
+  },
+  {
+    slug: "orbit-coffee-table",
+    name: "Orbit Coffee Table",
+    type: "furniture",
+    category: "table",
+    has3D: false,
+    tagline: "A round marble-top table that doesn't corner-clip a small room.",
+    description:
+      "Round tables leave more walking space in a small living room than a rectangular one of the same size. Orbit pairs a marble-finish top with a solid wood base that needs no tools beyond the included hex key.",
+    price: 4499,
+    mrp: 5999,
+    installments: 3,
+    rating: 4.4,
+    reviewCount: 264,
+    colors: [
+      { name: "Warm Glass", hex: "#f2e2b8" },
+    ],
+    image: img("1714926340157-dd3a67e7b2c4"),
+    specs: [
+      { label: "Top", value: "Marble-finish, 60cm diameter" },
+      { label: "Base", value: "Solid wood, tripod" },
+      { label: "Assembly", value: "Tool-free, ~10 minutes" },
+      { label: "Weight limit", value: "25kg evenly distributed" },
+    ],
+    compatibility: [],
+    inHostelKit: false,
+    reviews: [
+      {
+        name: "Kavya R.",
+        location: "Chennai",
+        rating: 5,
+        text: "Round shape genuinely makes our small living room feel bigger. Assembly took less than 10 minutes.",
+        date: "3 weeks ago",
+      },
+      {
+        name: "Om Prakash S.",
+        location: "Jaipur",
+        rating: 4,
+        text: "Looks more expensive than it is. Marble finish shows fingerprints, wipes off easily though.",
+        date: "6 weeks ago",
+      },
+    ],
+  },
+  {
+    slug: "frame-tv-console",
+    name: "Frame TV Console",
+    type: "furniture",
+    category: "tvunit",
+    has3D: false,
+    tagline: "Closed storage for the cables and consoles a TV wall never shows.",
+    description:
+      "Frame holds a TV up to 55 inches and hides the router, set-top box, and cable mess behind two soft-close doors, with an open shelf for a plant or speaker on top.",
+    price: 6999,
+    mrp: 8999,
+    installments: 3,
+    rating: 4.2,
+    reviewCount: 141,
+    colors: [
+      { name: "Chalk", hex: "#e9e2d3" },
+    ],
+    image: img("1461151304267-38535e780c79"),
+    specs: [
+      { label: "Fits TVs up to", value: "55 inch" },
+      { label: "Storage", value: "2 soft-close cabinets + open shelf" },
+      { label: "Cable routing", value: "Rear cutout" },
+      { label: "Assembly", value: "Required, ~30 minutes" },
+    ],
+    compatibility: [],
+    inHostelKit: false,
+    reviews: [
+      {
+        name: "Aakash V.",
+        location: "Hyderabad",
+        rating: 4,
+        text: "Finally hid the set-top box and router mess. Soft-close doors feel sturdier than the price suggests.",
+        date: "1 month ago",
+      },
+      {
+        name: "Zoya M.",
+        location: "Lucknow",
+        rating: 4,
+        text: "Fits our 50-inch TV console space exactly. Instructions were clear enough to assemble solo.",
+        date: "2 months ago",
+      },
+    ],
+  },
+  {
+    slug: "arc-floor-lamp",
+    name: "Arc Floor Lamp",
+    type: "furniture",
+    category: "floorlamp",
+    has3D: false,
+    tagline: "A reading lamp that clamps light exactly over the sofa arm.",
+    description:
+      "An adjustable-head floor lamp with a weighted base, angled so the light lands on a book or laptop on the sofa instead of the ceiling.",
+    price: 1799,
+    mrp: 2499,
+    installments: 3,
+    rating: 4.3,
+    reviewCount: 198,
+    colors: [
+      { name: "Ink", hex: "#2b2723" },
+    ],
+    image: img("1507473885765-e6ed057f782c"),
+    specs: [
+      { label: "Head", value: "Adjustable angle + height" },
+      { label: "Base", value: "Weighted, non-slip" },
+      { label: "Bulb", value: "E27, not included" },
+      { label: "Switch", value: "In-line foot switch" },
+    ],
+    compatibility: [],
+    inHostelKit: false,
+    reviews: [
+      {
+        name: "Nitin D.",
+        location: "Mumbai",
+        rating: 5,
+        text: "Exactly what our reading corner needed. Base is heavy enough that it doesn't tip when the cord gets tugged.",
+        date: "3 weeks ago",
+      },
+      {
+        name: "Preeti J.",
+        location: "Bhopal",
+        rating: 4,
+        text: "Good light angle over the sofa arm. Wish the cord were a little longer.",
+        date: "2 months ago",
+      },
+    ],
+  },
+  {
+    slug: "meadow-area-rug",
+    name: "Meadow Area Rug",
+    type: "furniture",
+    category: "rug",
+    has3D: false,
+    tagline: "A 5x7ft rug that anchors a seating area without hiding the floor.",
+    description:
+      "Low-pile and machine washable, sized to sit under a coffee table with the sofa legs just off the edge — the sizing most living rooms actually need.",
+    price: 2999,
+    mrp: 3999,
+    installments: 3,
+    rating: 4.1,
+    reviewCount: 176,
+    colors: [
+      { name: "Warm Glass", hex: "#f2e2b8" },
+      { name: "Smoked Glass", hex: "#4a463f" },
+    ],
+    image: img("1727192807128-0cee790dcc83"),
+    specs: [
+      { label: "Size", value: "5 x 7 ft" },
+      { label: "Pile", value: "Low-pile, 8mm" },
+      { label: "Care", value: "Machine washable" },
+      { label: "Backing", value: "Non-slip" },
+    ],
+    compatibility: [],
+    inHostelKit: false,
+    reviews: [
+      {
+        name: "Rhea F.",
+        location: "Delhi",
+        rating: 4,
+        text: "Right size to sit under our coffee table without swallowing the whole room. Non-slip backing actually works on tile.",
+        date: "1 month ago",
+      },
+      {
+        name: "Suresh N.",
+        location: "Coimbatore",
+        rating: 4,
+        text: "Held up to one full wash after a spill, came out looking new.",
+        date: "3 months ago",
+      },
+    ],
+  },
+  {
+    slug: "knit-cushion-set",
+    name: "Knit Cushion Set",
+    type: "furniture",
+    category: "cushion",
+    has3D: false,
+    tagline: "Two chunky-knit cushion covers, insert not included.",
+    description:
+      "A set of two chunky hand-knit-style cushion covers in a 45x45cm fit for standard inserts, machine washable.",
+    price: 799,
+    mrp: 1199,
+    installments: 3,
+    rating: 4.5,
+    reviewCount: 312,
+    colors: [
+      { name: "Chalk", hex: "#e9e2d3" },
+    ],
+    image: img("1595026525047-dfa997df8a4a"),
+    specs: [
+      { label: "Set", value: "2 covers, 45 x 45cm" },
+      { label: "Material", value: "Chunky-knit cotton blend" },
+      { label: "Insert", value: "Not included" },
+      { label: "Care", value: "Machine washable" },
+    ],
+    compatibility: [],
+    inHostelKit: false,
+    reviews: [
+      {
+        name: "Ira B.",
+        location: "Kolkata",
+        rating: 5,
+        text: "Texture looks exactly like the photos, not a thin printed knit pattern. Fits standard inserts perfectly.",
+        date: "2 weeks ago",
+      },
+      {
+        name: "Varun T.",
+        location: "Ahmedabad",
+        rating: 4,
+        text: "Good quality for the price, colour matched what I expected.",
+        date: "5 weeks ago",
       },
     ],
   },

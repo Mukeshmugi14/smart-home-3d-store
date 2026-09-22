@@ -9,6 +9,7 @@ const TYPE_FILTERS: { key: ProductType | "all"; label: string }[] = [
   { key: "all", label: "All products" },
   { key: "smart", label: "Smart home" },
   { key: "home", label: "Home essentials" },
+  { key: "furniture", label: "Furniture" },
 ]
 
 const SORTS: { key: SortKey; label: string }[] = [
