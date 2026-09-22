@@ -7,6 +7,11 @@ import Shop from "./pages/Shop"
 import Product from "./pages/Product"
 import Bundles from "./pages/Bundles"
 import Cart from "./pages/Cart"
+import Checkout from "./pages/Checkout"
+import OrderConfirmation from "./pages/OrderConfirmation"
+import Orders from "./pages/Orders"
+import TrackOrder from "./pages/TrackOrder"
+import Wishlist from "./pages/Wishlist"
 import About from "./pages/About"
 import NotFound from "./pages/NotFound"
 
@@ -30,6 +35,11 @@ export default function App() {
           <Route path="/product/:slug" element={<Product />} />
           <Route path="/bundles" element={<Bundles />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/order-confirmation/:id" element={<OrderConfirmation />} />
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/track/:id" element={<TrackOrder />} />
+          <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/about" element={<About />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
