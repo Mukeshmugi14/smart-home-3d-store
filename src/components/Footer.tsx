@@ -80,7 +80,7 @@ export default function Footer() {
       <div className="border-t border-line px-5 py-5 text-center text-xs text-ink-soft">
         A concept storefront built to demonstrate a 3D-first, Amazon-style
         shopping experience. Not a real store — checkout and tracking are
-        simulated. Product photography via Unsplash.
+        simulated. Product photography via Unsplash, video via Pexels.
       </div>
     </footer>
   )
